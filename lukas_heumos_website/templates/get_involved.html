@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>{{ _('iGEM Tübingen support, sponsoring and participation') }}</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}"/>
+    <!-- SEO -->
+    <meta name="og:title" property="og:title" content="{{ _('iGEM Tübingen support, sponsoring and participation') }}" />
+    <meta name="og:type"property="og:type" content="website" />
+    <meta property="og:url" content="https://igem-tuebingen.com/get_involved"/>
+    <!-- TODO: bild fehlt -->
+    <!--<meta name="og:image" property="og:image" content="https://igem-tuebingen.com/static/images/team/team_all_cut.jpg" />-->
+    <meta name="og:description" property="og:description" content="{{ _('The iGEM finance subteam is searching for support and sponsoring. This is key for the iGEM team Tübingen to participate the student competition successfully.') }}" />
+    <meta name="description" content="{{ _('The iGEM finance subteam is searching for support and sponsoring. This is key for the iGEM team Tübingen to participate the student competition successfully.') }}" />
+
+    <noscript>
+        <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="{{ url_for('index') }}">{{ _('iGEM Team Tübingen 2019 GLP.exe') }}</a></h1>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+    <!-- Menu -->
+    {% include 'menu.html' %}
+
+    <!-- Wrapper -->
+    <section id="wrapper">
+        <div class="backi">
+            <header>
+
+                <div class="inner">
+                    <p></p><br>
+                    <p></p><br>
+                    <p></p><br>
+                    <p></p><br>
+                    <div class="subtitle">
+                        <h2>{{ _('iGEM Tübingen support, sponsoring and participation') }}</h2>
+{#                        <p>"A strong team can take any crazy vision and turn it into reality." --John Carmack</p>#}
+                    </div>
+                    <p></p><br>
+                    <p></p><br>
+                    <p></p><br>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="wrapper">
+                <div class="inner">
+
+                    <h3 class="major">{{ _('How to support us') }}</h3>
+                    <p>{{ _('The iGEM team Tübingen is an independent research group of motivated students and is therefore
+                        responsible for the organisation and financing of the project. In order to realize a successful
+                        iGEM
+                        project and achieve our goals in this competition, we need the support of researchers,
+                        companies,
+                        institutions, associations and private individuals.
+                        Not only financial support, but also the provision of materials and resources or expertise helps
+                        us tremendously.') }}</p>
+
+                    <h3 class="major">{{ _('Participate in iGEM Tübingen') }}</h3>
+                    <p> {{ _('iGEM offers each of us a unique and valuable training opportunity that is hard to find anywhere
+                        else. Not only are our practical skills deepened, expanded and improved within the framework of
+                        a large project, it also gives us the opportunity to expand our knowledge and skills in other
+                        areas. This enables us to learn valuable skills in the areas of project organization,
+                        implementation, presentation, financing and public relations. These are also valuable skills for
+                        future careers, which make iGEM participants stand out from the crowd. Since iGEM is an
+                        international competition, new national and international contacts are established through
+                        cultural
+                        exchange. We welcome and invite students from all backgrounds and take pride in our very
+                        interdisciplinary and diverse team.
+                        Experienced researchers play a vital role in the project development and planning stage.
+                        Furthermore, they teach us important techniques and give valuable feedback. We would hereby like
+                        to extend
+                        our invitation to experienced researchers who are willing to collaborate with us.') }}
+                    </p>
+
+                    <h3 class="major">{{ _('Sponsoring and Support') }}</h3>
+                    <p> {{ _('iGEM is an intensive experience that gives students the opportunity to continue their education
+                        outside of
+                        their academic career and, by networking with professors, companies, researchers and former
+                        participants, it draws on a large pool of knowledge and experience.
+                        The iGEM team Tübingen has always been able to successfully realize its goals and projects
+                        thanks to
+                        the support it has received in recent years. Through the iGEM team Tübingen, sponsors come into
+                        contact with capable and motivated young scientists and are associated with an innovative
+                        scientific
+                        project. In return for a sponsorship of our project, our sponsors have the opportunity to
+                        advertise
+                        and represent themselves in public, at presentations, on our website and in many social
+                        networks.') }}
+                        {{ _('Our past and current sponsors can be found on our') }}<br><br> <a href="{{ url_for('sponsors') }}"
+                                                                             class="special">{{ _('Sponsors Page') }}</a>
+                        {{ _('If you are interested in sponsoring us, please do not hesitate to contact us using the form at
+                        the bottom of the page!') }}
+                    </p>
+
+
+                    <section class="features">
+                        {% include 'banner/about.html' %}
+                        {% include 'banner/sponsors.html' %}
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    {% include 'footer.html' %}
+
+</div>
+
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/jquery.scrollex.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/spam.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
+</html>

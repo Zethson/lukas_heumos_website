@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve lukas_heumos_website
+After=network.target
+
+[Service]
+User=zeth
+Group=www-data
+WorkingDirectory=/home/zeth/lukas_heumos_website
+Environment="PATH=/home/zeth/lukas_heumos_website/dpenv/bin"
+ExecStart=/home/zeth/lukas_heumos_website/dpenv/bin/gunicorn --workers 3 --bind unix:lukas_heumos_website.sock -m 007 lukas_heumos_website.app:app
+
+[Install]
+WantedBy=multi-user.target
