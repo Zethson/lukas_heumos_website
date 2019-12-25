@@ -8,11 +8,11 @@ server {
 }
 
 server {
-    if ($host = lukas_heumos_website.com) {
+    if ($host = lukasheumos.com) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
 
-    if ($host = www.lukas_heumos_website.com) {
+    if ($host = www.lukasheumos.com) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
 
