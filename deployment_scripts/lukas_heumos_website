@@ -17,6 +17,6 @@ server {
     } # managed by Certbot
 
     listen 80;
-    server_name www.lukas_heumos_website.com lukas_heumos_website.com;
+    server_name www.lukasheumos.com lukasheumos.com;
     return 301 https://$host$request_uri;
 }
