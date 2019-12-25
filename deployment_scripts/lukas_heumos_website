@@ -3,7 +3,7 @@ server {
 
     location / {
         include proxy_params;
-        proxy_pass http://unix:/home/zeth/igem_tuebingen_website/igem_tuebingen_website.sock;
+        proxy_pass http://unix:/home/zeth/lukas_heumos_website/lukas_heumos_website.sock;
     }
 }
 
