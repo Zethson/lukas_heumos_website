@@ -11,9 +11,9 @@ def contact_request():
     if not request.form['name'] or not request.form['email'] or not request.form['message'] or "@" not in request.form['email']:
         return render_template("contact_error.html")
 
-    msg = Message("iGEM Tuebingen Website Request by: " + request.form['name'],
+    msg = Message("Personal website request by: " + request.form['name'],
                   sender=request.form['email'],
-                  recipients=['lukas.heumos@gmail.com'])
+                  recipients=['lukas.heumos@posteo.net'])
     sent_by = "The request was sent by: " + request.form['name'] + " with the contact e-mail: " + request.form['email'] + "\n\n"
     message = "His/her message is: \n\n" + request.form['message']
     msg.body = sent_by + message
