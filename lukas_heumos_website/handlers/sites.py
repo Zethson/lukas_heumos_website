@@ -13,7 +13,7 @@ def index():
 
 
 @app.route('/favicon.ico')
-def hello():
+def favicon():
     return redirect(url_for('static', filename='images/icons/logo_1.5.jpg'), code=302)
 
 
