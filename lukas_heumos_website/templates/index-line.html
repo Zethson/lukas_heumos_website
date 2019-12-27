@@ -8,7 +8,10 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 		<!-- Title -->
-		<title>Lukas Heumos - Personal Website</title>
+		<title>Lukas Heumos</title>
+
+        <meta name="description" content="Lukas Heumos' personal website.
+         Lukas Heumos is a bioinformatics and machine learning research scientist with an extensive software engineering background.">
 
 		<!-- CSS Plugins -->
         <link rel="stylesheet" href="{{url_for ('static', filename='assets/css/plugins/bootstrap.min.css')}}">
@@ -49,7 +52,7 @@
 
 			<div class="header-mobile">
                 <a class="header-toggle"><i class="fas fa-bars"></i></a>
-                <h2>Baha</h2>
+                <h2>Lukas Heumos</h2>
             </div>
 
 			<!-- Left Block -->
@@ -57,7 +60,7 @@
 
 				<!-- Logo -->
 				<div class="logo">
-            		<img src="{{url_for ('static', filename='assets/img/machine-learning-logo.png')}}" alt="">
+            		<img src="{{url_for ('static', filename='assets/img/brain.png')}}" alt="">
             	</div>
 
           		<ul>
@@ -82,17 +85,17 @@
           		</ul>
 
 				<!-- Sound wave -->
-    			<a class="music-bg">
-      				<div class="lines">
-        				<span></span>
-        				<span></span>
-        				<span></span>
-        				<span></span>
-						<span></span>
-						<span></span>
-      				</div>
-					<p> Sound </p>
-    			</a>
+<!--    			<a class="music-bg">-->
+<!--      				<div class="lines">-->
+<!--        				<span></span>-->
+<!--        				<span></span>-->
+<!--        				<span></span>-->
+<!--        				<span></span>-->
+<!--						<span></span>-->
+<!--						<span></span>-->
+<!--      				</div>-->
+<!--					<p> Sound </p>-->
+<!--    			</a>-->
 			 </nav>
 
 			<!-- Home Section -->
@@ -124,12 +127,12 @@
 					</div>
 
 					<!-- Language -->
-					<div class="lang">
-                		<ul>
-                   			<li><a href="#" class="active">eng</a></li>
-                    		<li><a href="#">de</a></li>
-                		</ul>
-            		</div>
+<!--					<div class="lang">-->
+<!--                		<ul>-->
+<!--                   			<li><a href="#" class="active">eng</a></li>-->
+<!--                    		<li><a href="#">de</a></li>-->
+<!--                		</ul>-->
+<!--            		</div>-->
 
 					<!-- Social -->
 					<div class="social">
@@ -170,7 +173,7 @@
 										<div class="loc">
 											<i class="fas fa-map-marked-alt"></i> Tübingen, Germany
 										</div>
-										<p>Hello! I’m Lukas Heumos a bioinformatics and machine learning research scientist & developer with over three years work experience.
+										<p>Hello! I’m Lukas Heumos, a bioinformatics and machine learning research scientist & developer with over three years work experience.
                                             I started programming in my children’s room and solidified my education with bioinformatics degrees from EKU Tübingen.
                                             Now I’m based in Tübingen, Germany, working for Quantitative Biology Center Tübingen and enjoying life in a small village.
 										</p>
@@ -808,9 +811,9 @@
 						<div class="col-lg-12 col-sm-12 portfolio-filter">
 							<ul>
 								<li class="active" data-filter="*">All</li>
-								<li data-filter=".brand">Brand</li>
-								<li data-filter=".design">Design</li>
-								<li data-filter=".graphic">Graphic</li>
+								<li data-filter=".software">Software</li>
+								<li data-filter=".publication">Publications</li>
+								<li data-filter=".gallery">Gallery</li>
 							</ul>
 						</div>
 					</div>
@@ -818,113 +821,155 @@
 					<!-- Portfolio Item Row Start -->
 					<div class="row portfolio-items mt-100 mb-100">
 
+                    <!-- SOFTWARE -->
+                    <!-- canva.com -> science -->
 						<!-- Portfolio Item -->
-						<div class="item col-lg-4 col-sm-6 graphic">
+						<div class="item col-lg-4 col-sm-6 software">
 							<figure>
-								<img alt="" src="img/portfolio/img-1.jpg">
-								<figcaption>
-									<h3>Project Name</h3>
-									<p>Graphic</p><i class="fas fa-image"></i>
-									<a class="image-link" href="img/portfolio/img-1.jpg"></a>
-								</figcaption>
-							</figure>
-						</div>
-
-						<!-- Portfolio Item -->
-						<div class="item col-lg-4 col-sm-6 design">
-							<figure>
-								<img alt="" src="img/portfolio/img-2.jpg">
+								<img alt="promoe" src="{{url_for ('static', filename='assets/img/portfolio/promoe.png')}}">
 									<figcaption>
-									<h3>Project Name</h3>
-									<p>Design</p><i class="fas fa-image"></i>
-									<a class="image-link" href="img/portfolio/img-2.jpg"></a>
+									<h3>Promoe</h3>
+									<p>Software</p><i class="fas fa-image"></i>
+									<a class="" href="https://github.com/zethson/promoe"></a>
 								</figcaption>
 							</figure>
 						</div>
 
 						<!-- Portfolio Item -->
-						<div class="item col-lg-4 col-sm-6 brand">
+						<div class="item col-lg-4 col-sm-6 software">
 							<figure>
-								<img alt="" src="img/portfolio/img-3.jpg">
+								<img alt="mhcboost" src="{{url_for ('static', filename='assets/img/portfolio/mhcboost.png')}}">
 								<figcaption>
-									<h3>Project Name</h3>
-									<p>Graphic</p><i class="fas fa-video"></i>
-									<a class="video-link" href="https://www.youtube.com/watch?v=k_okcNVZqqI"></a>
+									<h3>MHCBoost</h3>
+									<p>Software</p><i class="fas fa-image"></i>
+									<a class="" href="https://github.com/Zethson/MHCBoost"></a>
 								</figcaption>
 							</figure>
 						</div>
 
 						<!-- Portfolio Item -->
-						<div class="item col-lg-4 col-sm-6 graphic">
+						<div class="item col-lg-4 col-sm-6 software">
 							<figure>
-								<img alt="" src="img/portfolio/img-4.jpg">
+								<img alt="" src="{{url_for ('static', filename='assets/img/portfolio/spark-service.png')}}">
 								<figcaption>
-									<h3>Project Name</h3>
-									<p>Design</p><i class="fas fa-image"></i>
-									<a class="image-link" href="img/portfolio/img-4.jpg"></a>
+									<h3>Spark-service</h3>
+									<p>Software</p><i class="fas fa-image"></i>
+									<a class="" href="https://github.com/qbicsoftware/spark-service"></a>
 								</figcaption>
 							</figure>
 						</div>
 
 						<!-- Portfolio Item -->
-						<div class="item col-lg-4 col-sm-6 design">
+						<div class="item col-lg-4 col-sm-6 software">
 							<figure>
-								<img alt="" src="img/portfolio/img-5.jpg">
+								<img alt="" src="{{url_for ('static', filename='assets/img/portfolio/scark.png')}}">
 								<figcaption>
-									<h3>Project Name</h3>
-									<p>Design</p><i class="fas fa-video"></i>
-									<a class="video-link" href="https://www.youtube.com/watch?v=k_okcNVZqqI"></a>
+									<h3>Scark</h3>
+									<p>Software</p><i class="fas fa-image"></i>
+									<a class="" href="https://github.com/qbicsoftware/scark-cli"></a>
 								</figcaption>
 							</figure>
 						</div>
 
 						<!-- Portfolio Item -->
-						<div class="item col-lg-4 col-sm-6 brand">
+						<div class="item col-lg-4 col-sm-6 software">
 							<figure>
-								<img alt="" src="img/portfolio/img-6.jpg">
+								<img alt="" src="{{url_for ('static', filename='assets/img/portfolio/rmageddon.png')}}">
 								<figcaption>
-									<h3>Project Name</h3>
-									<p>Brand</p><i class="fas fa-image"></i>
-									<a class="image-link" href="img/portfolio/img-6.jpg"></a>
+									<h3>Rmageddon</h3>
+									<p>Software</p><i class="fas fa-image"></i>
+									<a class="" href="https://github.com/qbicsoftware/rmageddon-cli"></a>
+								</figcaption>
+							</figure>
+						</div>
+
+                        <!-- PUBLICATIONS -->
+                        <!-- canva.com -> science -->
+                        <!-- Portfolio Item -->
+						<div class="item col-lg-4 col-sm-6 publication">
+							<figure>
+								<img alt="MHCquant: Automated and Reproducible Data Analysis for Immunopeptidomics" src="{{url_for ('static', filename='assets/img/portfolio/mhcquant_2.png')}}">
+								<figcaption>
+									<h3>MHCquant: Automated and Reproducible Data Analysis for Immunopeptidomics</h3>
+									<p>Publication</p><i class="fas fa-book"></i>
+									<a class="" href="https://pubs.acs.org/doi/abs/10.1021/acs.jproteome.9b00313"></a>
 								</figcaption>
 							</figure>
 						</div>
 
 						<!-- Portfolio Item -->
-						<div class="item col-lg-4 col-sm-6 graphic">
+						<div class="item col-lg-4 col-sm-6 publication">
 							<figure>
-								<img alt="" src="img/portfolio/img-7.jpg">
+								<img alt="Junge Molekularbiologie-Teams kreieren faszinierende Innovationen" src="{{url_for ('static', filename='assets/img/portfolio/biospektrum.png')}}">
 								<figcaption>
-									<h3>Project Name</h3>
-									<p>Brand</p><i class="fas fa-image"></i>
-									<a class="image-link" href="img/portfolio/img-7.jpg"></a>
+									<h3>Junge Molekularbiologie-Teams kreieren faszinierende Innovationen</h3>
+									<p>Publication</p><i class="fas fa-book"></i>
+									<a class="" href="https://link.springer.com/article/10.1007/s12268-019-1092-0"></a>
 								</figcaption>
 							</figure>
 						</div>
 
+                        <!-- GALLERY -->
 						<!-- Portfolio Item -->
-						<div class="item col-lg-4 col-sm-6 design">
+						<div class="item col-lg-4 col-sm-6 gallery">
 							<figure>
-								<img alt="" src="img/portfolio/img-8.jpg">
+								<img alt="Experimenta Neural Network" src="{{url_for ('static', filename='assets/img/portfolio/experimenta_ml.jpg')}}">
 								<figcaption>
-									<h3>Project Name</h3>
-									<p>Brand</p><i class="fas fa-image"></i>
-									<a class="image-link" href="img/portfolio/img-8.jpg"></a>
+									<h3>Experimenta - Teaching Neural Networks</h3>
+									<p>Gallery</p><i class="fas fa-image"></i>
+									<a class="image-link" href="{{url_for ('static', filename='assets/img/portfolio/experimenta_ml.jpg')}}"></a>
 								</figcaption>
 							</figure>
 						</div>
 
-						<!-- Portfolio Item -->
-						<div class="item col-lg-4 col-sm-6 brand">
+                        <!-- Portfolio Item -->
+						<div class="item col-lg-4 col-sm-6 gallery">
 							<figure>
-								<img alt="" src="img/portfolio/img-9.jpg">
+								<img alt="Experimenta Project Managment" src="{{url_for ('static', filename='assets/img/portfolio/experimenta_slack.jpg')}}">
 								<figcaption>
-									<h3>Project Name</h3>
-									<p>Graphic</p><i class="fas fa-image"></i>
-									<a class="image-link" href="img/portfolio/img-9.jpg"></a>
+									<h3>Experimenta - Teaching Project Managment</h3>
+									<p>Gallery</p><i class="fas fa-image"></i>
+									<a class="image-link" href="{{url_for ('static', filename='assets/img/portfolio/experimenta_slack.jpg')}}"></a>
 								</figcaption>
 							</figure>
 						</div>
+
+                        <!-- Portfolio Item -->
+						<div class="item col-lg-4 col-sm-6 gallery">
+							<figure>
+								<img alt="Experimenta iGEM" src="{{url_for ('static', filename='assets/img/portfolio/experimenta_igem.jpg')}}">
+								<figcaption>
+									<h3>Experimenta - Introducing iGEM</h3>
+									<p>Gallery</p><i class="fas fa-image"></i>
+									<a class="image-link" href="{{url_for ('static', filename='assets/img/portfolio/experimenta_igem.jpg')}}"></a>
+								</figcaption>
+							</figure>
+						</div>
+
+                        <!-- Portfolio Item -->
+						<div class="item col-lg-4 col-sm-6 gallery">
+							<figure>
+								<img alt="Experimenta Group" src="{{url_for ('static', filename='assets/img/portfolio/experimenta_group.jpg')}}">
+								<figcaption>
+									<h3>Experimenta - Group Picture</h3>
+									<p>Gallery</p><i class="fas fa-image"></i>
+									<a class="image-link" href="{{url_for ('static', filename='assets/img/portfolio/experimenta_group.jpg')}}"></a>
+								</figcaption>
+							</figure>
+						</div>
+
+                        <!-- Portfolio Item -->
+						<div class="item col-lg-4 col-sm-6 gallery">
+							<figure>
+								<img alt="Experimenta Study Bioinformatics" src="{{url_for ('static', filename='assets/img/portfolio/experimenta_bioinformatics_study.jpg')}}">
+								<figcaption>
+									<h3>Experimenta - Introducing Bioinformatics Studies</h3>
+									<p>Gallery</p><i class="fas fa-image"></i>
+									<a class="image-link" href="{{url_for ('static', filename='assets/img/portfolio/experimenta_bioinformatics_study.jpg')}}"></a>
+								</figcaption>
+							</figure>
+						</div>
+
 					</div>
 				</section>
        	   	</div>
@@ -941,111 +986,111 @@
 					<!-- Blog Row Start -->
 					<div class="row blog-masonry mt-100 mb-50">
 
-						<!-- Blog Item -->
-						<div class="col-lg-4 col-sm-6">
-							<div class="blog-item">
-								<div class="thumbnail">
-									<a href="single-blog.html"><img alt="" src="img/blog/img-1.jpg"></a>
-								</div>
-								<h4><a href="single-blog.html">Road to success</a></h4>
-								<ul>
-                            		<li><a href="#">15 April 2019</a></li>
-                            		<li><a href="#">Lifestyle</a></li>
-                           		</ul>
-								<div class="blog-btn">
-									<a href="single-blog.html" class="btn-st">Read More</a>
-								</div>
-							</div>
-						</div>
+<!--						&lt;!&ndash; Blog Item &ndash;&gt;-->
+<!--						<div class="col-lg-4 col-sm-6">-->
+<!--							<div class="blog-item">-->
+<!--								<div class="thumbnail">-->
+<!--									<a href="single-blog.html"><img alt="" src="img/blog/img-1.jpg"></a>-->
+<!--								</div>-->
+<!--								<h4><a href="single-blog.html">Road to success</a></h4>-->
+<!--								<ul>-->
+<!--                            		<li><a href="#">15 April 2019</a></li>-->
+<!--                            		<li><a href="#">Lifestyle</a></li>-->
+<!--                           		</ul>-->
+<!--								<div class="blog-btn">-->
+<!--									<a href="single-blog.html" class="btn-st">Read More</a>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
 
-						<!-- Blog Item -->
-						<div class="col-lg-4 col-sm-6">
-							<div class="blog-item">
-								<div class="thumbnail">
-									<a href="single-blog.html"><img alt="" src="img/blog/img-2.jpg"></a>
-									<a href="https://www.youtube.com/watch?v=k_okcNVZqqI" class="btn-play"></a>
-								</div>
-								<h4><a href="single-blog.html">Road to success</a></h4>
-								<ul>
-                            		<li><a href="#">10 March 2019</a></li>
-                            		<li><a href="#">Lifestyle</a></li>
-                           		</ul>
-								<div class="blog-btn">
-									<a href="single-blog.html" class="btn-st">Read More</a>
-								</div>
-							</div>
-						</div>
+<!--						&lt;!&ndash; Blog Item &ndash;&gt;-->
+<!--						<div class="col-lg-4 col-sm-6">-->
+<!--							<div class="blog-item">-->
+<!--								<div class="thumbnail">-->
+<!--									<a href="single-blog.html"><img alt="" src="img/blog/img-2.jpg"></a>-->
+<!--									<a href="https://www.youtube.com/watch?v=k_okcNVZqqI" class="btn-play"></a>-->
+<!--								</div>-->
+<!--								<h4><a href="single-blog.html">Road to success</a></h4>-->
+<!--								<ul>-->
+<!--                            		<li><a href="#">10 March 2019</a></li>-->
+<!--                            		<li><a href="#">Lifestyle</a></li>-->
+<!--                           		</ul>-->
+<!--								<div class="blog-btn">-->
+<!--									<a href="single-blog.html" class="btn-st">Read More</a>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
 
-						<!-- Blog Item -->
-						<div class="col-lg-4 col-sm-6">
-							<div class="blog-item">
-								<div class="thumbnail">
-									<a href="single-blog.html"><img alt="" src="img/blog/img-3.jpg"></a>
-								</div>
-								<h4><a href="single-blog.html">Road to success</a></h4>
-								<ul>
-                            		<li><a href="#">02 March 2019</a></li>
-                            		<li><a href="#">Work</a></li>
-                            	</ul>
-								<p>Tower Hamlets or mass or members of propaganda bananas real estate. However, a large and a mourning, vel euismod.</p>
-								<div class="blog-btn">
-									<a href="single-blog.html" class="btn-st">Read More</a>
-								</div>
-							</div>
-						</div>
+<!--						&lt;!&ndash; Blog Item &ndash;&gt;-->
+<!--						<div class="col-lg-4 col-sm-6">-->
+<!--							<div class="blog-item">-->
+<!--								<div class="thumbnail">-->
+<!--									<a href="single-blog.html"><img alt="" src="img/blog/img-3.jpg"></a>-->
+<!--								</div>-->
+<!--								<h4><a href="single-blog.html">Road to success</a></h4>-->
+<!--								<ul>-->
+<!--                            		<li><a href="#">02 March 2019</a></li>-->
+<!--                            		<li><a href="#">Work</a></li>-->
+<!--                            	</ul>-->
+<!--								<p>Tower Hamlets or mass or members of propaganda bananas real estate. However, a large and a mourning, vel euismod.</p>-->
+<!--								<div class="blog-btn">-->
+<!--									<a href="single-blog.html" class="btn-st">Read More</a>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
 
-						<!-- Blog Item -->
-						<div class="col-lg-4 col-sm-6">
-							<div class="blog-item">
-								<div class="thumbnail">
-									<a href="single-blog.html"><img alt="" src="img/blog/img-4.jpg"></a>
-								</div>
-								<h4><a href="single-blog.html">Road to success</a></h4>
-								<ul>
-                            		<li><a href="#">29 March 2019</a></li>
-                            		<li><a href="#">Career</a></li>
-                            	</ul>
-								<div class="blog-btn">
-									<a href="single-blog.html" class="btn-st">Read More</a>
-								</div>
-							</div>
-						</div>
+<!--						&lt;!&ndash; Blog Item &ndash;&gt;-->
+<!--						<div class="col-lg-4 col-sm-6">-->
+<!--							<div class="blog-item">-->
+<!--								<div class="thumbnail">-->
+<!--									<a href="single-blog.html"><img alt="" src="img/blog/img-4.jpg"></a>-->
+<!--								</div>-->
+<!--								<h4><a href="single-blog.html">Road to success</a></h4>-->
+<!--								<ul>-->
+<!--                            		<li><a href="#">29 March 2019</a></li>-->
+<!--                            		<li><a href="#">Career</a></li>-->
+<!--                            	</ul>-->
+<!--								<div class="blog-btn">-->
+<!--									<a href="single-blog.html" class="btn-st">Read More</a>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
 
-						<!-- Blog Item -->
-						<div class="col-lg-4 col-sm-6">
-							<div class="blog-item">
-								<div class="thumbnail">
-									<a href="single-blog.html"><img alt="" src="img/blog/img-5.jpg"></a>
-								</div>
-								<h4><a href="single-blog.html">Road to success</a></h4>
-								<ul>
-									<li><a href="#">14 April 2019</a></li>
-                            		<li><a href="#">Lifestyle</a></li>
-                            	</ul>
-								<p>Tower Hamlets or mass or members of propaganda bananas real estate. However, a large and a mourning, vel euismod.</p>
-								<div class="blog-btn">
-									<a href="single-blog.html" class="btn-st">Read More</a>
-								</div>
-							</div>
-						</div>
+<!--						&lt;!&ndash; Blog Item &ndash;&gt;-->
+<!--						<div class="col-lg-4 col-sm-6">-->
+<!--							<div class="blog-item">-->
+<!--								<div class="thumbnail">-->
+<!--									<a href="single-blog.html"><img alt="" src="img/blog/img-5.jpg"></a>-->
+<!--								</div>-->
+<!--								<h4><a href="single-blog.html">Road to success</a></h4>-->
+<!--								<ul>-->
+<!--									<li><a href="#">14 April 2019</a></li>-->
+<!--                            		<li><a href="#">Lifestyle</a></li>-->
+<!--                            	</ul>-->
+<!--								<p>Tower Hamlets or mass or members of propaganda bananas real estate. However, a large and a mourning, vel euismod.</p>-->
+<!--								<div class="blog-btn">-->
+<!--									<a href="single-blog.html" class="btn-st">Read More</a>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
 
-						<!-- Blog Item -->
-						<div class="col-lg-4 col-sm-6">
-							<div class="blog-item">
-								<div class="thumbnail">
-									<a href="single-blog.html"><img alt="" src="img/blog/img-6.jpg"></a>
-									<a href="https://www.youtube.com/watch?v=k_okcNVZqqI" class="btn-play"></a>
-								</div>
-								<h4><a href="single-blog.html">Road to success</a></h4>
-								<ul>
-                           		 	<li><a href="#">29 April 2019</a></li>
-                           		 	<li><a href="#">Career</a></li>
-                        	    </ul>
-								<div class="blog-btn">
-									<a href="single-blog.html" class="btn-st">Read More</a>
-								</div>
-							</div>
-						</div>
+<!--						&lt;!&ndash; Blog Item &ndash;&gt;-->
+<!--						<div class="col-lg-4 col-sm-6">-->
+<!--							<div class="blog-item">-->
+<!--								<div class="thumbnail">-->
+<!--									<a href="single-blog.html"><img alt="" src="img/blog/img-6.jpg"></a>-->
+<!--									<a href="https://www.youtube.com/watch?v=k_okcNVZqqI" class="btn-play"></a>-->
+<!--								</div>-->
+<!--								<h4><a href="single-blog.html">Road to success</a></h4>-->
+<!--								<ul>-->
+<!--                           		 	<li><a href="#">29 April 2019</a></li>-->
+<!--                           		 	<li><a href="#">Career</a></li>-->
+<!--                        	    </ul>-->
+<!--								<div class="blog-btn">-->
+<!--									<a href="single-blog.html" class="btn-st">Read More</a>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
 					</div>
             	</section>
 			</div>
@@ -1064,35 +1109,28 @@
 					<div class="row mt-100">
 						<div class="col-lg-12 col-sm-12">
 							<div class="contact-form ">
-                        		<form method="post" class="box-1 contact-valid" id="contact-form">
-									<div class="row">
-                            			<div class="col-lg-6 col-sm-12">
-                                			<input type="text" name="name" id="name" class="form-control" placeholder="Name *">
-                            			</div>
-                            			<div class="col-lg-6 col-sm-12">
-                                			<input type="email" name="email" id="email" class="form-control" placeholder="Email *">
-                            			</div>
-                            			<div class="col-lg-12 col-sm-12">
-                                			<textarea class="form-control" name="note"  id="note" placeholder="Your Message"></textarea>
-                            			</div>
-                             			<div class="col-lg-12 col-sm-12 text-center">
-                                			<button type="submit" class="btn-st">Send Message</button>
-                                			<div id="loader">
-                                    			<i class="fas fa-sync"></i>
-                                			</div>
-                            			</div>
-										<div class="col-lg-12 col-sm-12">
-                            				<div class="error-messages">
-                                				<div id="success">
-													<i class="far fa-check-circle"></i>Thank you, your message has been sent.
-												</div>
-                                				<div id="error">
-													<i class="far fa-times-circle"></i>Error occurred while sending email. Please try again later.
-												</div>
-											</div>
-                            			</div>
-									</div>
-                    			</form>
+                                <form method="post" action="{{ url_for('contact_request') }}">
+                                    <form>
+                                    <div class="field" style="display: none">
+                                        <label for="emailSPAM">address</label>
+                                        <input type="text" name="emailSPAM" id="emailSPAM"/>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-sm-12">
+                                            <input type="text" name="name" id="name" class="form-control" placeholder="Name *">
+                                        </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <input type="email" name="email" id="email" class="form-control" placeholder="Email *">
+                                    </div>
+                                    <div class="col-lg-12 col-sm-12">
+                                        <textarea class="form-control" name="message"  id="message" placeholder="Your Message"></textarea>
+                                    </div>
+                                    </div>
+                                    <ul class="actions col-lg-12 col-sm-12 text-center">
+                                        <li><input type="submit" style="font-size: 16px; color: #2ecc71" value="{{ _('Send Message') }}"/></li>
+                                    </ul>
+                                    </form>
+                                </form>
                     		</div>
 						</div>
 					</div>
