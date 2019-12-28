@@ -20,3 +20,8 @@ def access_forbidden(error):
 @app.errorhandler(410)
 def page_gone(error):
     return render_template('errors/410.html'), 410
+
+
+@app.errorhandler(400)
+def bad_request(error):
+    return render_template('errors/400.html'), 400
