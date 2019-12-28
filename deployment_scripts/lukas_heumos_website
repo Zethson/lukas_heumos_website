@@ -1,5 +1,5 @@
 server {
-    server_name lukasheumos.com www.lukasheumos.com.com;
+    server_name lukasheumos.com www.lukasheumos.com;
 
     location / {
         include proxy_params;
