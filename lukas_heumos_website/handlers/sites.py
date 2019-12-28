@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, session
+from flask import render_template, redirect, url_for, session, request
 from ..app import app
 
 
@@ -30,3 +30,11 @@ def set_language(language=None):
 
     session['language'] = language
     return redirect(url_for('index'))
+
+
+@app.before_request
+def before_request():
+    if request.url.startswith('http://'):
+        url = request.url.replace('http://', 'https://', 1)
+        code = 301
+        return redirect(url, code=code)
