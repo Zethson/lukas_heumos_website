@@ -2076,6 +2076,11 @@ blockquote:before,
 	font-size: 40px;
 	text-transform: uppercase;
 	margin-bottom: 15px;
+    color: #2ecc71;
+}
+
+.blog-page .blog-content-heading h2 {
+    color: #2ecc71;
 }
 
 .blog-page .blog-heading i {

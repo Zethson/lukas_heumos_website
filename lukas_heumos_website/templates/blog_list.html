@@ -49,7 +49,7 @@
 
 			<!-- Logo -->
 			<div class="logo">
-            	<img src="img/logo.png" alt="">
+            	<img src="{{url_for ('static', filename='assets/img/brain.png')}}" alt="">
             </div>
 
           	<ul>
@@ -62,17 +62,17 @@
           	</ul>
 
 			<!-- Sound wave -->
-    		<a class="music-bg">
-      			<div class="lines">
-        			<span></span>
-        			<span></span>
-        			<span></span>
-        			<span></span>
-					<span></span>
-					<span></span>
-      			</div>
-				<p> Sound </p>
-    		</a>
+<!--    		<a class="music-bg">-->
+<!--      			<div class="lines">-->
+<!--        			<span></span>-->
+<!--        			<span></span>-->
+<!--        			<span></span>-->
+<!--        			<span></span>-->
+<!--					<span></span>-->
+<!--					<span></span>-->
+<!--      			</div>-->
+<!--				<p> Sound </p>-->
+<!--    		</a>-->
 		 </nav>
 
 		<!--Blog Page-->
@@ -93,81 +93,18 @@
 							<div class="blog-post">
                         		<div class="content">
 									<div class="thumbnail">
-                        				<a href="single-blog.html">
-											<img src="img/blog/post/blog-1.jpg" alt="">
+                        				<a href="{{ url_for('spark_service') }}">
+											<img src="{{url_for ('static', filename='assets/img/blog/spark_service_1/spark_service.png')}}" alt="Containerized Apache Spark Setup">
 										</a>
 									</div>
                             		<div class="detalis">
                                 		<ul class="meta">
-                                    		<li><i class="fa fa-calendar"></i>August 27, 2019</li>
-                                    		<li><i class="icon fa fa-user"></i>Alex Smith</li>
+                                    		<li><i class="fa fa-calendar"></i>01 January, 2020</li>
+                                    		<li><i class="icon fa fa-user"></i>Lukas Heumos</li>
                                 		</ul>
-                                		<h4><a href="single-blog.html">Hello world!</a></h4>
-                                		<div class="text">Proin pulvinar massa neque, vel sodales augue aliquet placerat. Sed consequat commodo magna ac luctus.</div>
-                                		<a href="single-blog.html" class="btn-st">View More</a>
-									</div>
-								</div>
-                            </div>
-
-							<!--Blog Post-->
-							<div class="blog-post">
-                        		<div class="content">
-									<div class="thumbnail">
-                        				<a href="single-blog.html">
-											<img src="img/blog/post/blog-2.jpg" alt="">
-										</a>
-									</div>
-                            		<div class="detalis">
-                                		<ul class="meta">
-                                    		<li><i class="fa fa-calendar"></i>August 23, 2019</li>
-                                    		<li><i class="icon fa fa-user"></i>Alex Smith</li>
-                                		</ul>
-                                		<h4><a href="single-blog.html">Great workspace idas.</a></h4>
-                                		<div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat atque vitae voluptatem libero at eveniet veritatis ab facere.
-										</div>
-                                		<a href="single-blog.html" class="btn-st">View More</a>
-									</div>
-								</div>
-                            </div>
-
-							<!--Blog Post-->
-							<div class="blog-post">
-                        		<div class="content">
-									<div class="thumbnail">
-                        				<a href="single-blog.html">
-											<img src="img/blog/post/blog-3.jpg" alt="">
-										</a>
-									</div>
-                            		<div class="detalis">
-                                		<ul class="meta">
-                                    		<li><i class="fa fa-calendar"></i>July 29, 2019</li>
-                                    		<li><i class="icon fa fa-user"></i>Alex Smith</li>
-                                		</ul>
-                                		<h4><a href="single-blog.html">Perfect Nature.</a></h4>
-                                		<div class="text">Cookies are set through this site to recognise your repeat visits and preferences, serve more vant ads, facilitate social sharing, and to violanalyse traffic.Others wondered if the hand of od was at work over New York, heralding perhaps a new Pope, or the moment when Evangeli cals say true...
-										</div>
-                                		<a href="single-blog.html" class="btn-st">View More</a>
-									</div>
-								</div>
-                            </div>
-
-							<!--Blog Post-->
-							<div class="blog-post">
-                        		<div class="content">
-									<div class="thumbnail">
-                        				<a href="single-blog.html">
-											<img src="img/blog/post/blog-4.jpg" alt="">
-										</a>
-									</div>
-                            		<div class="detalis">
-                                		<ul class="meta">
-                                    		<li><i class="fa fa-calendar"></i>July 21, 2019</li>
-                                    		<li><i class="icon fa fa-user"></i>Alex Smith</li>
-                                		</ul>
-                                		<h4><a href="single-blog.html">Road to success.</a></h4>
-                                		<div class="text">Tower Hamlets or mass or members of propaganda bananas real estate. However, a large and a mourning, vel euismod...
-										</div>
-                                		<a href="single-blog.html" class="btn-st">View More</a>
+                                		<h4><a href="{{ url_for('spark_service') }}">Containerized Apache Spark Setup</a></h4>
+                                		<div class="text">An introduction to Apache Spark and a docker based quick setup for Apache Spark clusters.</div>
+                                		<a href="{{ url_for('spark_service') }}" class="btn-st">View More</a>
 									</div>
 								</div>
                             </div>
@@ -177,8 +114,8 @@
 								<li>
 							  		<a href="#"><i class="fa fa-angle-left"></i></a>
 								</li>
-								<li><a href="#">1</a></li>
-								<li class="active"><a href="#">2</a></li>
+								<li class="active"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
 								<li><a href="#">3</a></li>
 								<li>
 							  		<a href="#"><i class="fa fa-angle-right"></i></a>
@@ -204,9 +141,9 @@
 								<div class="categories">
 									<h4>Categories</h4>
 									<ul>
-										<li><a href="#">Consulting</a></li>
-										<li><a href="#">Life Style</a></li>
-										<li><a href="#">Technology</a></li>
+										<li><a href="#">Bioinformatics</a></li>
+										<li><a href="#">Machine Learning</a></li>
+										<li><a href="#">Software Engineering</a></li>
 									</ul>
 								</div>
 
@@ -216,31 +153,14 @@
 									<ul>
 										<li>
 											<div class="mess-img">
-												<img src="img/blog/post/blog-4.jpg" alt="">
+												<img src="{{url_for ('static', filename='assets/img/blog/spark_service_1/spark_service.png')}}" alt="Containerized Apache Spark Setup">
 											</div>
 											<div class="mess-info">
-												<h5><a href="#">Road to success.</a></h5>
-												<p><i class="fa fa-calendar"></i>August 23, 2019</p>
+												<h5><a href="{{ url_for('spark_service') }}">Containerized Apache Spark Setup</a></h5>
+												<p><i class="fa fa-calendar"></i>January 01, 2020</p>
 											</div>
 										</li>
-										<li>
-											<div class="mess-img">
-												<img src="img/blog/post/blog-3.jpg" alt="">
-											</div>
-											<div class="mess-info">
-												<h5><a href="#">Perfect Nature.</a></h5>
-												<p><i class="fa fa-calendar"></i>July 21, 2019</p>
-											</div>
-										</li>
-										<li>
-											<div class="mess-img">
-												<img src="img/blog/post/blog-2.jpg" alt="">
-											</div>
-											<div class="mess-info">
-												<h5><a href="#">Great workspace idas.</a></h5>
-												<p><i class="fa fa-calendar"></i>July 29, 2019</p>
-											</div>
-										</li>
+
 									</ul>
 								</div>
 
@@ -248,14 +168,7 @@
 								<div class="gallery">
 									<h4>Gallery</h4>
 									<ul>
-										<li><img src="img/blog/post/gallery/gallery-1.jpg" alt=""></li>
-										<li><img src="img/blog/post/gallery/gallery-2.jpg" alt=""></li>
-										<li><img src="img/blog/post/gallery/gallery-3.jpg" alt=""></li>
-										<li><img src="img/blog/post/gallery/gallery-4.jpg" alt=""></li>
-										<li><img src="img/blog/post/gallery/gallery-5.jpg" alt=""></li>
-										<li><img src="img/blog/post/gallery/gallery-6.jpg" alt=""></li>
-										<li><img src="img/blog/post/gallery/gallery-7.jpg" alt=""></li>
-										<li><img src="img/blog/post/gallery/gallery-8.jpg" alt=""></li>
+										<li><img src="{{url_for ('static', filename='assets/img/blog/spark_service_1/spark_service.png')}}" alt="Containerized Apache Spark Setup"></li>
 									</ul>
 								</div>
 
@@ -263,9 +176,9 @@
 								<div class="archives">
 									<h4>Archives</h4>
 									<ul>
-										<li><a href="#">August 2019</a></li>
-										<li><a href="#">July 2019</a></li>
-										<li><a href="#">June 2019</a></li>
+										<li><a href="#">January 2020</a></li>
+										<li><a href="#">February 2020</a></li>
+										<li><a href="#">March 2020</a></li>
 									</ul>
 								</div>
 
@@ -273,12 +186,12 @@
 								<div class="tags">
 									<h4>Tags</h4>
 									<ul>
-										<li><a href="#">Applin</a></li>
-										<li><a href="#">Business</a></li>
-										<li><a href="#">Cloud</a></li>
-										<li><a href="#">Hosting</a></li>
-										<li><a href="#">Life</a></li>
-										<li><a href="#">Techniq</a></li>
+										<li><a href="#">Bioinformatics</a></li>
+										<li><a href="#">Machine Learning</a></li>
+										<li><a href="#">Software Engineering</a></li>
+										<li><a href="#">Templates</a></li>
+										<li><a href="#">Transcriptomics</a></li>
+										<li><a href="#">Deep Learning</a></li>
 									</ul>
 								</div>
 
