@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, session, request
+from flask import render_template, redirect, url_for, session, request, send_from_directory
 from ..app import app
 
 
@@ -15,6 +15,11 @@ def index():
 @app.route('/favicon.ico')
 def favicon():
     return redirect(url_for('static', filename='images/icons/logo_1.5.jpg'), code=302)
+
+#@app.route('/robots.txt')
+@app.route('/sitemap.xml')
+def static_from_root():
+    return send_from_directory(app.static_folder, request.path[1:])
 
 
 @app.route('/impressum')
