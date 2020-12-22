@@ -82,7 +82,7 @@ def compile():
 
 
 """This selector checks, if the user selected a language manually and in that case uses this language for translations.
-    
+
    However, if the user has not selected any language (when accessing the page for the first time, new browser session,
    ...) it will choose the best matching language out of the configured ones, using browser settings and request headers
    "Accept-Language:" property
@@ -103,8 +103,7 @@ def get_locale():
 """This function allows us to use all possible language options and the current language in our templates"""
 @app.context_processor
 def inject_conf_var():
-    return dict(
-                AVAILABLE_LANGUAGES=Config.LANGUAGES,
+    return dict(AVAILABLE_LANGUAGES=Config.LANGUAGES,
                 CURRENT_LANGUAGE=session.get('language', request.accept_languages.best_match(Config.LANGUAGES.keys())))
 
 
