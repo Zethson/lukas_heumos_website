@@ -1,5 +1,5 @@
-====================
-lukas_heumos_website
-====================
+===============
+Private website
+===============
 
 https://lukasheumos.com
