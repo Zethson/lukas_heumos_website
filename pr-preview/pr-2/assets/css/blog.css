@@ -1,0 +1,19 @@
+.blog-content pre {
+    position: relative;
+    background-color: #282c34;
+    border-radius: 8px;
+    padding: 16px;
+    padding-top: 40px;
+    overflow-x: auto;
+}
+
+.blog-content code {
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 14px;
+}
+
+.blog-content p code {
+    background-color: #282c34;
+    padding: 2px 6px;
+    border-radius: 3px;
+}

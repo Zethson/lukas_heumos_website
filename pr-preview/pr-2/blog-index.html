@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Lukas Heumos</title>
+      <meta charset="utf-8" />
+      <meta name="generator" content="Pelican" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body>
+      <header>
+          <hgroup><h1><a href="/">Lukas Heumos</a></h1></hgroup>
+          <nav><ul>
+                <li><a href="/category/high-performance-computing.html" >High Performance Computing</a></li>
+          </ul></nav>
+      </header>
+      <main>
+        <h2>All articles</h2>
+
+
+        <article>
+            <header> <h2><a href="/spark-service.html" rel="bookmark" title="Permalink to Containerized Apache Spark Setup">Containerized Apache Spark Setup</a></h2> </header>
+            <section><h2>Introduction</h2>
+<p>Setting up Apache Spark in a containerized environment provides reproducibility and scalability for large-scale data processing workflows.</p>
+<h2>Implementation</h2>
+<p>Here's how we configured our Docker-based Spark cluster:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">spark-master</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bitnami/spark:latest</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SPARK_MODE=master</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;8080:8080&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;7077:7077&#39;</span>
+</code></pre></div>
+
+<p>Key considerations:</p>
+<ul>
+<li>Resource allocation per executor</li>
+<li>Network …</li></ul></section>
+            <footer>
+                <p>Published: <time datetime="2020-01-01T00:00:00+01:00"> Wed 01 January 2020 </time></p>
+                <address>By
+                        <a href="/author/lukas-heumos.html">Lukas Heumos</a>
+                </address>
+            </footer>
+        </article>
+
+
+      </main>
+      <footer>
+          <address>
+            Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>,
+            which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
+          </address>
+      </footer>
+  </body>
+</html>
