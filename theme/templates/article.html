@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ SITENAME }} - {{ article.title }}</title>
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/plugins/simplebar.css">
+    <link rel="stylesheet" href="assets/css/plugins/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/jquery.animatedheadline.css">
+    <link rel="stylesheet" href="assets/css/style-dark.css">
+    <link rel="stylesheet" href="assets/css/settings/left-nav.css">
+    <link rel="stylesheet" href="assets/css/settings/green-color.css">
+    <link rel="stylesheet" href="assets/css/settings/circle-box.css">
+    <link rel="stylesheet" href="assets/css/blog-custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="loading-area"><div class="circle"></div></div>
+        <div class="left-side"></div>
+        <div class="right-side"></div>
+    </div>
+
+    <div class="header-mobile">
+        <a class="header-toggle"><i class="fas fa-bars"></i></a>
+        <h2>{{ SITENAME }}</h2>
+    </div>
+
+    <nav class="header-main" data-simplebar>
+        <div class="logo"><img src="assets/img/brain.png" alt=""></div>
+        <ul>
+            <li data-tooltip="home" data-position="top">
+                <a href="index.html#blog" class="fas fa-house-damage"></a>
+            </li>
+            <li><span class="active fas fa-receipt"></span></li>
+            <li data-tooltip="back to blog" data-position="top">
+                <a href="index.html#blog" class="fas fa-long-arrow-alt-left"></a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="blog-page" data-simplebar>
+        <nav class="blog-nav">
+            {% if article.prev_article %}
+            <a href="{{ article.prev_article.url }}" data-tooltip="prev" data-position="left">
+                <i class="fas fa-long-arrow-alt-left"></i>
+            </a>
+            {% else %}
+            <a href="#" data-tooltip="prev" data-position="left"><i class="fas fa-long-arrow-alt-left"></i></a>
+            {% endif %}
+            <a href="index.html#blog"><i class="fas fa-bars"></i></a>
+            {% if article.next_article %}
+            <a href="{{ article.next_article.url }}" data-tooltip="next" data-position="right">
+                <i class="fas fa-long-arrow-alt-right"></i>
+            </a>
+            {% else %}
+            <a href="#" data-tooltip="next" data-position="right"><i class="fas fa-long-arrow-alt-right"></i></a>
+            {% endif %}
+        </nav>
+
+        <div class="blog-image">
+            <img src="assets/img/blog-bg.jpg" alt="">
+        </div>
+
+        <div class="row blog-container">
+            <div class="col-md-10 offset-md-1">
+                <div class="blog-heading pt-70 pb-100">
+                    <h2>{{ article.title }}</h2>
+                    <span><i class="fas fa-home"></i><a href="index.html#blog">Blog</a></span>
+                    <span><i class="fas fa-folder"></i><a href="#">{{ article.category }}</a></span>
+                    <span><i class="fas fa-calendar-alt"></i>{{ article.date.strftime('%B %d, %Y') }}</span>
+                </div>
+
+                <div class="blog-content blog-content-heading">
+                    {{ article.content }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/simplebar.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.animatedheadline.min.js"></script>
+    <script src="assets/js/jquery.easypiechart.js"></script>
+    <script src="assets/js/jquery.validation.js"></script>
+    <script src="assets/js/tilt.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
