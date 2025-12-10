@@ -20,7 +20,7 @@ jobs:
         uses: astral-sh/setup-uv@v7
 
       - name: Install Pelican
-        run: uv pip install pelican markdown
+        run: uv pip install --system pelican markdown
 
       - name: Build blog posts
         run: pelican content -o output -s pelicanconf.py
