@@ -35,7 +35,8 @@ jobs:
           cp -r errors publish/
           cp index.html publish/
           cp output/*.html publish/
-          echo "www.lukasheumos.com" > publish/CNAME
+          echo "=== publish directory contents ==="
+          ls -la publish/
 
       - name: Deploy PR preview
         id: preview-step
@@ -52,7 +53,11 @@ jobs:
           header: pr-preview
           message: |
             :rocket: **PR Preview**
-            Preview available at: ${{ steps.preview-step.outputs.preview-url }}
+            Preview available at: https://zethson.github.io/lukas_heumos_website/pr-preview/pr-${{ github.event.number }}/
+
+      - name: Add CNAME for production
+        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+        run: echo "www.lukasheumos.com" > publish/CNAME
 
       - name: Deploy to Github Pages
         if: github.event_name == 'release' || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
