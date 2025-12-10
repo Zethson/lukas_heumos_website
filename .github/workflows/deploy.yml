@@ -16,13 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: '3.x'
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v7
 
       - name: Install Pelican
-        run: pip install pelican markdown
+        run: uv pip install pelican markdown
 
       - name: Build blog posts
         run: pelican content -o output -s pelicanconf.py
