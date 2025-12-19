@@ -20,3 +20,12 @@ STATIC_PATHS = []
 ARTICLE_URL = '{slug}.html'
 ARTICLE_SAVE_AS = '{slug}.html'
 INDEX_SAVE_AS = 'blog-index.html'
+
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.tables': {},
+        'markdown.extensions.fenced_code': {},
+        'markdown.extensions.codehilite': {'css_class': 'highlight'},
+    },
+    'output_format': 'html5',
+}

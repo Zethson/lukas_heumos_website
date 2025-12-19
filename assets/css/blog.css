@@ -1,19 +1,57 @@
 .blog-content pre {
-    position: relative;
-    background-color: #282c34;
-    border-radius: 8px;
-    padding: 16px;
-    padding-top: 40px;
-    overflow-x: auto;
+	position: relative;
+	background-color: #282c34;
+	border-radius: 8px;
+	padding: 16px;
+	padding-top: 40px;
+	overflow-x: auto;
 }
 
 .blog-content code {
-    font-family: 'Fira Code', 'Consolas', monospace;
-    font-size: 14px;
+	font-family: "Fira Code", "Consolas", monospace;
+	font-size: 14px;
 }
 
 .blog-content p code {
-    background-color: #282c34;
-    padding: 2px 6px;
-    border-radius: 3px;
+	background-color: #282c34;
+	padding: 2px 6px;
+	border-radius: 3px;
+}
+
+.blog-content a {
+	color: #2ecc71;
+}
+
+/* HEADERS */
+.blog-content h2,
+.blog-content h3,
+.blog-content h4 {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.blog-content h3 {
+	font-size: 20px;
+}
+
+.blog-content h4 {
+	font-size: 16px;
+}
+
+/* TABLES*/
+.blog-content table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 1.5em 0;
+}
+
+.blog-content th,
+.blog-content td {
+	border: 1px solid #555;
+	padding: 0.75em 1em;
+	background-color: #1a1a1a;
+}
+
+.blog-content th {
+	background-color: #333;
 }
