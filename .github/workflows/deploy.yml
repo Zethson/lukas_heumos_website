@@ -1,26 +1,68 @@
 name: Deploy
 
 on:
+  push:
+    branches: [main]
+  pull_request:
   release:
     types: [published]
   workflow_dispatch:
 
+concurrency: preview-${{ github.ref }}
+
 jobs:
-  build-book:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
-          python-version: 3.x
+          python-version: '3.x'
 
-      - name: Create CNAME record
-        run: echo "www.lukasheumos.com" > CNAME
+      - name: Install Pelican
+        run: pip install pelican markdown
+
+      - name: Build blog posts
+        run: pelican content -o output -s pelicanconf.py
+
+      - name: Prepare publish directory
+        run: |
+          mkdir -p publish
+          rm -rf output/assets
+          cp -r assets publish/
+          cp -r errors publish/
+          cp index.html publish/
+          cp output/*.html publish/
+          echo "=== publish directory contents ==="
+          ls -la publish/
+
+      - name: Deploy PR preview
+        id: preview-step
+        uses: rossjrw/pr-preview-action@v1
+        if: github.event_name == 'pull_request' && github.event.action != 'closed'
+        with:
+          source-dir: ./publish
+          preview-branch: gh-pages
+
+      - name: Add Sticky PR Comment for Preview
+        uses: marocchino/sticky-pull-request-comment@v2
+        if: github.event_name == 'pull_request' && github.event.action != 'closed'
+        with:
+          header: pr-preview
+          message: |
+            :rocket: **PR Preview**
+            Preview available at: https://zethson.github.io/lukas_heumos_website/pr-preview/pr-${{ github.event.number }}/
+
+      - name: Add CNAME for production
+        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+        run: echo "www.lukasheumos.com" > publish/CNAME
 
       - name: Deploy to Github Pages
+        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+          publish_dir: ./publish
+          keep_files: true

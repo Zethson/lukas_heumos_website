@@ -109,3 +109,6 @@ ENV/
 
 # Mail config
 lukas_heumos_website/static/mail.conf
+
+# pelican
+output
