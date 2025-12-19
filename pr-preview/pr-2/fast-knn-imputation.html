@@ -32,7 +32,7 @@
     </div>
 
     <nav class="header-main" data-simplebar>
-        <div class="logo"><img src="assets/img/brain.png" alt=""></div>
+        <div class="logo"><img src="assets/img/brain.png" alt="" style="transform: scale(0.6);"></div>
         <ul>
             <li data-tooltip="home" data-position="top">
                 <a href="index.html#blog" class="fas fa-house-damage"></a>
@@ -57,7 +57,7 @@
 
         <div class="row blog-container">
             <div class="col-md-10 offset-md-1">
-                <div class="blog-heading pt-70 pb-100">
+                <div class="blog-heading pt-70 pb-50">
                     <h2>Fast KNN imputation</h2>
                     <span><i class="fas fa-home"></i><a href="index.html#blog">Blog</a></span>
                     <span><i class="fas fa-folder"></i><a href="#">Data Science</a></span>
@@ -180,9 +180,11 @@ Features that cannot be imputed via KNN fall back to mean/median imputation with
 <li><strong>weighted</strong>: Inverse-distance weighted average (closer neighbors contribute more)</li>
 </ul>
 <h3>Temporal Data Handling</h3>
-<p>For time series data in 3D format (samples × variables × timesteps), two modes are available:
-- <strong>flatten</strong>: Treats all (variable, timestep) pairs as independent features. Fast, but allows future values to inform past imputations (temporal leakage).
-- <strong>per_variable</strong>: Imputes each variable independently across its time dimension, preserving temporal causality at the cost of speed.</p>
+<p>For time series data in 3D format (samples × variables × timesteps), two modes are available:</p>
+<ul>
+<li><strong>flatten</strong>: Treats all (variable, timestep) pairs as independent features. Fast, but allows future values to inform past imputations (temporal leakage).</li>
+<li><strong>per_variable</strong>: Imputes each variable independently across its time dimension, preserving temporal causality at the cost of speed.</li>
+</ul>
 <h2>Installation &amp; Usage</h2>
 <p>Install with optional GPU dependencies:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># CPU only (FAISS)</span>
@@ -219,6 +221,8 @@ For GPU pipelines or very large datasets, cuML pushes this to 500x.
 The implementation handles real-world complexity—sparse missingness, configurable strategies, and automatic backend selection—while maintaining a scikit-learn compatible API.</p>
 <p>The library is open source and available at <a href="https://github.com/Zethson/fknni">github.com/Zethson/fknni</a>.</p>
 <p>If you're interested in engaging with me, consider following me on <a href="https://bsky.app/profile/lukasheumos.bsky.social">Bluesky</a> or <a href="https://github.com/zethson">GitHub</a>.</p>
+<h2>Acknowledgements</h2>
+<p><code>fknni</code> was implemented by myself with major contributions from Nicolas Sidoux.</p>
                 </div>
             </div>
         </div>
