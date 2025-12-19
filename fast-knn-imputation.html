@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lukas Heumos - Fast KNN imputation</title>
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/plugins/simplebar.css">
+    <link rel="stylesheet" href="assets/css/plugins/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/jquery.animatedheadline.css">
+    <link rel="stylesheet" href="assets/css/style-dark.css">
+    <link rel="stylesheet" href="assets/css/settings/left-nav.css">
+    <link rel="stylesheet" href="assets/css/settings/green-color.css">
+    <link rel="stylesheet" href="assets/css/settings/circle-box.css">
+    <link rel="stylesheet" href="assets/css/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="loading-area"><div class="circle"></div></div>
+        <div class="left-side"></div>
+        <div class="right-side"></div>
+    </div>
+
+    <div class="header-mobile">
+        <a class="header-toggle"><i class="fas fa-bars"></i></a>
+        <h2>Lukas Heumos</h2>
+    </div>
+
+    <nav class="header-main" data-simplebar>
+        <div class="logo"><img src="assets/img/brain.png" alt="" style="transform: scale(0.6);"></div>
+        <ul>
+            <li data-tooltip="home" data-position="top">
+                <a href="index.html#blog" class="fas fa-house-damage"></a>
+            </li>
+            <li><span class="active fas fa-receipt"></span></li>
+            <li data-tooltip="back to blog" data-position="top">
+                <a href="index.html#blog" class="fas fa-long-arrow-alt-left"></a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="blog-page" data-simplebar>
+        <nav class="blog-nav">
+            <a href="#" data-tooltip="prev" data-position="left"><i class="fas fa-long-arrow-alt-left"></i></a>
+            <a href="index.html#blog"><i class="fas fa-bars"></i></a>
+            <a href="#" data-tooltip="next" data-position="right"><i class="fas fa-long-arrow-alt-right"></i></a>
+        </nav>
+
+        <div class="blog-image">
+            <img src="assets/img/blog-bg.jpg" alt="">
+        </div>
+
+        <div class="row blog-container">
+            <div class="col-md-10 offset-md-1">
+                <div class="blog-heading pt-70 pb-50">
+                    <h2>Fast KNN imputation</h2>
+                    <span><i class="fas fa-home"></i><a href="index.html#blog">Blog</a></span>
+                    <span><i class="fas fa-folder"></i><a href="#">Data Science</a></span>
+                    <span><i class="fas fa-calendar-alt"></i>December 24, 2025</span>
+                </div>
+
+                <div class="blog-content blog-content-heading">
+                    <h2>Introduction</h2>
+<p>KNN imputation is a widely used technique for handling missing data.
+The idea is simple: for each missing value, find the <code>k</code> nearest neighbors based on available features and impute using their values.
+While scikit-learn provides a convenient KNNImputer, it becomes prohibitively slow on large datasets due to its single-threaded implementation.
+When working on <a href="https://github.com/theislab/ehrapy">ehrapy</a>, our framework for electronic health record analysis, we encountered exactly this bottleneck - imputing 50,000 patient records with only 10% missing data took over 4 minutes.
+This motivated me to build <a href="https://github.com/Zethson/fknni/">fknni</a>, a drop-in replacement that achieves up to 500x speedup by leveraging FAISS and cuML.</p>
+<h2>Results</h2>
+<p>We benchmarked four implementations: scikit-learn's KNNImputer, our FastKNNImputer with FAISS (CPU and GPU), and the cupy/cuML backend.
+All experiments used <code>k=5</code> neighbors, 10% missing values, and the weighted imputation strategy.
+GPU benchmarks ran on an NVIDIA A100.</p>
+<p><a href="https://modal.com/notebooks/zethson/main/nb-fa70JCbEQUkhDgoKedcssO">Notebook to reproduce</a>.</p>
+<h3>Accuracy</h3>
+<p>All implementations produce comparable results, with our FAISS-based approach achieving slightly lower mean absolute error against the original data:</p>
+<table>
+<thead>
+<tr>
+<th>Implementation</th>
+<th>MAE vs Original</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sklearn</td>
+<td>53.57</td>
+</tr>
+<tr>
+<td>FAISS CPU</td>
+<td>52.74</td>
+</tr>
+<tr>
+<td>FAISS GPU</td>
+<td>52.74</td>
+</tr>
+<tr>
+<td>cupy/cuML</td>
+<td>52.78</td>
+</tr>
+</tbody>
+</table>
+<p>The small differences between sklearn and our implementations stem from distance computation precision and tie-breaking behavior.
+FAISS CPU and GPU produce identical results, while cuML shows minor variation due to float32 internal computations.</p>
+<h3>Performance</h3>
+<p>The performance gains are dramatic, especially at scale:</p>
+<p><img alt="KNN Imputation Speedup Comparison" src="assets/img/blog/knn/imputation_speedup_1.png">
+<em>Speedup over sklearn KNNImputer across different configurations. At 50k samples, cupy/cuML achieves 507x speedup on A100.</em></p>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>sklearn</th>
+<th>FAISS CPU</th>
+<th>FAISS GPU</th>
+<th>cupy/cuML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10k × 50</td>
+<td>10.7s</td>
+<td>0.35s</td>
+<td>0.35s</td>
+<td>1.14s</td>
+</tr>
+<tr>
+<td>50k × 50</td>
+<td>268.4s</td>
+<td>7.21s</td>
+<td>1.24s</td>
+<td>0.53s</td>
+</tr>
+</tbody>
+</table>
+<p>At 10,000 samples, FAISS CPU already delivers 30x speedup.
+The GPU backends show their strength at larger scales: at 50,000 samples, FAISS GPU achieves 216x speedup while cupy/cuML reaches 507x speedup. This crossover happens because GPU kernel launch overhead is amortized over more data, and cuML's brute-force search is highly optimized for batch queries.</p>
+<h2>Implementation</h2>
+<p>Building a fast, GPU-compatible KNN imputer required solving several technical challenges.</p>
+<h3>Automatic Backend Selection</h3>
+<p><code>FastKNNImputer</code> automatically dispatches based on input array type.
+Pass a numpy array, and it uses FAISS; pass a cupy array, and it uses cuML.
+This is achieved using the array API, which provides a unified interface across array libraries.
+This design ensures data stays on the GPU when using cupy - no expensive CPU transfers.</p>
+<h3>Why Not FAISS-GPU with cupy?</h3>
+<p>FAISS-GPU only accepts numpy arrays.
+Even with <code>faiss-gpu</code> installed, passing cupy arrays would require transferring data to CPU, defeating the purpose.
+cuML's <code>NearestNeighbors</code> operates natively on GPU memory, making it the right choice when your data pipeline is already GPU-resident.</p>
+<h3>Batched Operations</h3>
+<p>The naive approach processes rows one-by-one, which is catastrophic for GPU performance due to kernel launch overhead.
+Our implementation batches all operations:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Batch prefill NaNs with fallback values</span>
+<span class="n">queries</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">query_missing_mask</span><span class="p">,</span> <span class="n">fallbacks</span><span class="p">,</span> <span class="n">queries</span><span class="p">)</span>
+
+<span class="c1"># Single search call for all rows</span>
+<span class="n">distances</span><span class="p">,</span> <span class="n">indices</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">queries</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_neighbors</span><span class="p">)</span>
+
+<span class="c1"># Vectorized neighbor retrieval: (n_rows, k, n_features)</span>
+<span class="n">all_neighbors</span> <span class="o">=</span> <span class="n">training_data</span><span class="p">[</span><span class="n">safe_indices</span><span class="p">]</span>
+
+<span class="c1"># Vectorized weighted aggregation</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">distances</span> <span class="o">+</span> <span class="mf">1e-10</span><span class="p">)</span>
+<span class="n">imputed_rows</span> <span class="o">=</span> <span class="p">(</span><span class="n">all_neighbors</span> <span class="o">*</span> <span class="n">weights</span><span class="p">[:,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">weights</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
+<p>This eliminates thousands of Python loop iterations and GPU synchronization points.</p>
+<h3>Handling Sparse Missing Patterns</h3>
+<p>Real-world data rarely has uniform missingness.
+When too few complete rows exist to build a reliable index, we iteratively exclude the most-NaN-heavy features until reaching a configurable threshold (<code>min_data_ratio</code>).
+Features that cannot be imputed via KNN fall back to mean/median imputation with a warning.</p>
+<h3>Imputation Strategies</h3>
+<p>Three strategies are supported, matching scikit-learn's behavior:</p>
+<ul>
+<li><strong>mean</strong>: Average of neighbor values</li>
+<li><strong>median</strong>: Median of neighbor values</li>
+<li><strong>weighted</strong>: Inverse-distance weighted average (closer neighbors contribute more)</li>
+</ul>
+<h3>Temporal Data Handling</h3>
+<p>For time series data in 3D format (samples × variables × timesteps), two modes are available:</p>
+<ul>
+<li><strong>flatten</strong>: Treats all (variable, timestep) pairs as independent features. Fast, but allows future values to inform past imputations (temporal leakage).</li>
+<li><strong>per_variable</strong>: Imputes each variable independently across its time dimension, preserving temporal causality at the cost of speed.</li>
+</ul>
+<h2>Installation &amp; Usage</h2>
+<p>Install with optional GPU dependencies:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># CPU only (FAISS)</span>
+pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;fknni[faisscpu]&quot;</span>
+
+<span class="c1"># With FAISS-GPU</span>
+pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;fknni[faissgpu]&quot;</span>
+
+<span class="c1"># With RAPIDS (cuML, cupy)</span>
+pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;fknni[rapids12]&quot;</span>
+</code></pre></div>
+
+<p>Usage mirrors scikit-learn:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fknni</span> <span class="kn">import</span> <span class="n">FastKNNImputer</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">imputer</span> <span class="o">=</span> <span class="n">FastKNNImputer</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;weighted&quot;</span><span class="p">)</span>
+
+<span class="c1"># With numpy (uses FAISS)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">X</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="o">*</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">X_imputed</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># With cupy (uses cuML, stays on GPU)</span>
+<span class="kn">import</span> <span class="nn">cupy</span> <span class="k">as</span> <span class="nn">cp</span>
+<span class="n">X_gpu</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">X_imputed_gpu</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_gpu</span><span class="p">)</span>  <span class="c1"># Returns cupy array</span>
+</code></pre></div>
+
+<h2>Conclusion</h2>
+<p><code>fknni</code> brings modern hardware acceleration to KNN imputation.
+For CPU-bound workloads, FAISS delivers 30-40x speedup out of the box.
+For GPU pipelines or very large datasets, cuML pushes this to 500x.
+The implementation handles real-world complexity—sparse missingness, configurable strategies, and automatic backend selection—while maintaining a scikit-learn compatible API.</p>
+<p>The library is open source and available at <a href="https://github.com/Zethson/fknni">github.com/Zethson/fknni</a>.</p>
+<p>If you're interested in engaging with me, consider following me on <a href="https://bsky.app/profile/lukasheumos.bsky.social">Bluesky</a> or <a href="https://github.com/zethson">GitHub</a>.</p>
+<h2>Acknowledgements</h2>
+<p><code>fknni</code> was implemented by myself with major contributions from Nicolas Sidoux.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/simplebar.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.animatedheadline.min.js"></script>
+    <script src="assets/js/jquery.easypiechart.js"></script>
+    <script src="assets/js/jquery.validation.js"></script>
+    <script src="assets/js/tilt.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
