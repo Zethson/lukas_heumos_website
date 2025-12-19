@@ -11,7 +11,7 @@
       <header>
           <hgroup><h1><a href="/">Lukas Heumos</a></h1></hgroup>
           <nav><ul>
-                <li><a href="/category/high-performance-computing.html" >High Performance Computing</a></li>
+                <li><a href="/category/data-science.html" >Data Science</a></li>
           </ul></nav>
       </header>
       <main>
@@ -19,28 +19,13 @@
 
 
         <article>
-            <header> <h2><a href="/spark-service.html" rel="bookmark" title="Permalink to Containerized Apache Spark Setup">Containerized Apache Spark Setup</a></h2> </header>
+            <header> <h2><a href="/fast-knn-imputation.html" rel="bookmark" title="Permalink to Fast KNN imputation">Fast KNN imputation</a></h2> </header>
             <section><h2>Introduction</h2>
-<p>Setting up Apache Spark in a containerized environment provides reproducibility and scalability for large-scale data processing workflows.</p>
-<h2>Implementation</h2>
-<p>Here's how we configured our Docker-based Spark cluster:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
-<span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">spark-master</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bitnami/spark:latest</span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SPARK_MODE=master</span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;8080:8080&#39;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;7077:7077&#39;</span>
-</code></pre></div>
-
-<p>Key considerations:</p>
-<ul>
-<li>Resource allocation per executor</li>
-<li>Network …</li></ul></section>
+<p>KNN imputation is a widely used technique for handling missing data.
+The idea is simple: for each missing value, find the <code>k</code> nearest neighbors based on available features and impute using their values.
+While scikit-learn provides a convenient KNNImputer, it becomes prohibitively slow on large datasets due to its …</p></section>
             <footer>
-                <p>Published: <time datetime="2020-01-01T00:00:00+01:00"> Wed 01 January 2020 </time></p>
+                <p>Published: <time datetime="2025-12-24T00:00:00+01:00"> Wed 24 December 2025 </time></p>
                 <address>By
                         <a href="/author/lukas-heumos.html">Lukas Heumos</a>
                 </address>
