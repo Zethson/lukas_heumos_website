@@ -105,6 +105,7 @@ Three strategies are supported, matching scikit-learn's behavior:
 ### Temporal Data Handling
 
 For time series data in 3D format (samples × variables × timesteps), two modes are available:
+
 - **flatten**: Treats all (variable, timestep) pairs as independent features. Fast, but allows future values to inform past imputations (temporal leakage).
 - **per_variable**: Imputes each variable independently across its time dimension, preserving temporal causality at the cost of speed.
 
@@ -152,3 +153,7 @@ The implementation handles real-world complexity—sparse missingness, configura
 The library is open source and available at [github.com/Zethson/fknni](https://github.com/Zethson/fknni).
 
 If you're interested in engaging with me, consider following me on [Bluesky](https://bsky.app/profile/lukasheumos.bsky.social) or [GitHub](https://github.com/zethson).
+
+## Acknowledgements
+
+`fknni` was implemented by myself with major contributions from Nicolas Sidoux.
